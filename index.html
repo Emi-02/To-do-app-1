@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="tick.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>To-Do List</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> 
+  </script>  
+  <script src="script.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1 id="title">To-do</h1>
+      <div class="mode">
+       <img src="sun.png" alt="sun-mode" style="width: 30px; height:30px" class="sun">
+        <img src="moon.png" alt="moon-mode" style="width: 26px; height:26px" class="moon none">
+      </div>
+		</header>
+    
+		<div class="new-todo">
+				<span class="add-mark">+</span>
+				<form class="new-todo-input">
+					<input id="todo-input" type="text" placeholder="New task..." autofocus/>
+        </form>  
+    </div>
+
+    <div class="todo-items-wrapper">
+        
+      <ul class="todo-list">
+         <!-- <li class="todo-item completed example none">
+            <div class="check-mark checked"></div>
+            <p class="checked">Example</p>
+            <span class="delete"></span>
+          </li>-->
+        </ul>
+        
+      <div class="todo-items-info">
+          <div class="items-left" id="counter"></div>
+          <div class="items-statuses">
+            <span class="in-use all">All</span> |
+            <span class="to-do">to do</span> |
+            <span class="finished">Completed</span>
+          </div>
+          <div class="items-clear">
+            <span>Clear Completed</span>
+          </div>
+        </div>
+        
+    </div>
+    
+    </div>    
+  </body>
+</html>

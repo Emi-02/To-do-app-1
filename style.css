@@ -1,0 +1,240 @@
+:root {
+  --check-mark: #9AD4D6;
+  --used: hsl(233, 14%, 35%);
+  --teal: #557786;
+  --body: /*#101935*/#1B233E;
+  --img: url("tick.png");
+  --del: url("remove.png");
+  --item: #3A4158;
+  --text: #D9EDDF /* o #E9FEF5*/
+}
+.light {
+  --item: #71c68a;
+  --header: #25cb5c;
+  --body: white
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Light-mode */
+body.light {
+  background: white;
+  color: var(--text)
+}
+header.light {
+  background: var(--header)
+}
+.new-todo.light, .todo-items-wrapper.light {
+  background: var(--item);
+  color: var(--text) !important
+}
+.todo-items-info.light {
+  color: var(--used)
+}
+.check-mark.light{
+  border: 2px solid var(--text)
+}
+
+/* Container */
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  background: var(--body);
+  overflow-x: hidden
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem
+}
+
+/* Header */
+header {
+  width: 100vw;
+  max-height: 350px;
+  display: flex;
+  align-items: center
+}
+#title {
+  color: var(--text);
+  margin: 3rem;
+  letter-spacing: 6px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.mode {
+  margin-left: auto;
+  padding-right: 5%;
+}
+.none {
+  display: none
+}
+
+/* New Item */
+.new-todo {
+  width: 70%;
+  height: 70px;
+  background-color: var(--item);
+  margin: 3em 0;
+  border-radius: 40px;
+  display: flex;
+  box-shadow: 10px 9px 12px 2px rgb(10 10 10 / 35%);
+  align-items: center
+}
+.add-mark {
+  color: #9AD4D6;
+  font-size: 200%;
+  margin: 20px;
+  min-width: 30px;
+  height: 30px;
+  border: 2.5px solid var(--teal);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 500ms
+}
+.add-mark:hover {
+  transform: scale(1.05);
+  cursor: pointer
+}
+@keyframes pulse {
+  from {
+    box-shadow: #1d848c 0 0 0
+  }
+  to {
+    box-shadow: #ff69b400 0 0 0 10px
+  }
+}
+.add-mark.light {
+  color: var(--text);
+  border-color: var(--text);
+  animation: pulseL 500ms
+}
+@keyframes pulseL {
+  from {
+    box-shadow: #dbe0e1 0 0 0
+  }
+  to {
+    box-shadow: #ff69b400 0 0 0 10px
+  }
+}
+
+.new-todo-input {
+  width: 100%
+}
+.new-todo-input input {
+  font-size: 20px;
+  padding: 6px 8px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+}
+.new-todo-input input::placeholder {
+  color: var(--used);
+}
+.new-todo-input input:focus {
+  width: 90%;
+  border-bottom: 2px solid var(--teal);
+  transition: 1s border-color;
+}
+
+/* Checked */
+.check-mark {
+  min-width: 30px;
+  height: 30px;
+  border: 2px solid var(--used);
+  border-radius: 50%;
+  margin: 18px;
+  cursor: pointer;
+  transition: 0.25s all;
+}
+.check-mark:hover {
+  background-image: var(--img);
+  background-size: 25px 25px;
+  background-position: 10px 16px;
+  background-repeat: no-repeat;
+  border-color: var(--teal);
+  transition: all .5s
+}
+.check-mark.checked {
+  border-color: var(--teal);
+  background-image: var(--img);
+  background-position: center;
+  background-size: 27px 27px;
+}
+p.checked {
+  color: var(--used) !important;
+  text-decoration: line-through;
+}
+
+/* Wrapper list */
+.todo-items-wrapper {
+  width: 70%;
+  background-color: var(--item);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 9px 12px 2px rgb(10 10 10 / 35%);
+}
+.todo-item {
+  border-bottom: 1.5px solid var(--used);
+  display: flex
+}
+.todo-item p {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  overflow-x: auto
+}
+.delete {
+  min-width: 27px;
+  height: 27px;
+  background: var(--del) center no-repeat;
+  background-size: 27px 27px;
+  margin-left: auto;
+  margin-right: 18px;
+  align-self: center;
+  opacity: 40%;
+  border-radius: 8px
+}
+.delete:hover {
+  opacity: 100%;
+  transition: all .75s
+}
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+  transition: .75s
+}
+
+/* Item status */
+.todo-items-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px;
+  color: var(--teal);
+  flex-wrap: wrap;
+  gap: 20px
+}
+.items-statuses span, .items-clear  {
+  cursor: pointer;
+}
+.items-statuses span:hover, .items-clear:hover {
+  color: var(--body);
+}
+.items-statuses .in-use  {
+  color: var(--body);
+}
+.todo-item:hover {
+  /*transform: translateY(-2.0px);*/
+  box-shadow: 0 0px 7px 0px hsl(235, 21%, 11%);
+  border-color: hsl(235, 24%, 19%);
+}
